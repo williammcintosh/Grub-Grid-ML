@@ -7,6 +7,7 @@ class DetailTableViewController: UITableViewController {
   // MARK: - Outlets
   //@IBOutlet weak var CTLabel: UILabel!
   
+  @IBOutlet weak var re_text: UITextView!
   // MARK: - Properties
   var recipe: Recipe?
   
@@ -37,16 +38,18 @@ class DetailTableViewController: UITableViewController {
       print("\t"+String(s)+": "+recipe.ingredients[s])
     }
   }
+ 
   
   @IBAction func WritingToCKRecord(_ sender: UIButton) {
-    let recipes = loadRecipeCSV(from: "100_recipes")
+    print("Submission Sent")
+    let recipes = loadRecipeCSV(from: "1000000_cleanedup_RAW_recipes")
     PrettyPrintRecipes(recipe: recipes[0])
     for i in 0..<recipes.count {
-      UploadRecipeToCKRecord(recipe: recipes[i])
+      UploadRecipeToCKRecord(recipe: recipes[i], count: String(i))
     }
   }
   
-  func UploadRecipeToCKRecord(recipe: RecipeObj) {
+  func UploadRecipeToCKRecord(recipe: RecipeObj, count: String) {
     //"","name","id","minutes","nutrition","n_steps","steps","description","ingredients","n_ingredients"
     let itemRecord = CKRecord(recordType: "Recipe")
     itemRecord["index"] = recipe.index as CKRecordValue
@@ -60,8 +63,17 @@ class DetailTableViewController: UITableViewController {
     itemRecord["n_ingredients"] = recipe.n_ingredients as CKRecordValue
     itemRecord["nutrition"] = recipe.nutrition as CKRecordValue
 
-    CKContainer.default().publicCloudDatabase.save(itemRecord) { (record, err) in
-      print("Saving")
+    CKContainer.default().publicCloudDatabase.save(itemRecord) { (record, error) in
+      DispatchQueue.main.async {
+        if error == nil {
+          print("Saving number "+count+" recipe_id: "+String(recipe.n_steps))
+            self.tableView.reloadData()
+        } else {
+          let ac = UIAlertController(title: "Error", message: "There was a problem submitting your suggestion: \(error!.localizedDescription)", preferredStyle: .alert)
+          ac.addAction(UIAlertAction(title: "OK", style: .default))
+          self.present(ac, animated: true)
+        }
+      }
     }
   }
   
@@ -76,8 +88,28 @@ class DetailTableViewController: UITableViewController {
   
   private func setup() {
     guard let recipe = recipe else { return }
-    title = recipe.name
-    //CTLabel.text = recipe.description
+    //title = recipe.name
+    re_text.text = "Name:\n" + recipe.name + "\n\nIngredients:\n"
+    for s in 0..<recipe.ingredients.count {
+      re_text.text = re_text.text! + String(s+1) + ": " + recipe.ingredients[s] + "\n"
+    }
+    re_text.text = re_text.text! + "Minutes:\n" + String(recipe.minutes)
+/*
+    re_text.text = re_text.text! + "\n\nNutrition:\n"
+    re_text.text = re_text.text! + "\tCalories: " + String(recipe.nutrition[0])+"\n"
+    re_text.text = re_text.text! + "\tTotal Fat " + String(recipe.nutrition[1])+"\n"
+    re_text.text = re_text.text! + "\t %Daily Sugar : " + String(recipe.nutrition[2])+"\n"
+    re_text.text = re_text.text! + "\t %Daily Sodium: " + String(recipe.nutrition[3])+"\n"
+    re_text.text = re_text.text! + "\t %Daily Fiber: " + String(recipe.nutrition[4])+"\n"
+    re_text.text = re_text.text! + "\t Cholesterol: " + String(recipe.nutrition[5])+"\n"
+    re_text.text = re_text.text! + "\t %Daily Carbohydrate: " + String(recipe.nutrition[6])+"\n"
+*/
+    re_text.text = re_text.text! + "\nNumber of Steps: " + String(recipe.n_steps) + "\n"
+    re_text.text = re_text.text! + "\nSteps:"
+    for s in 0..<recipe.steps.count {
+      re_text.text = re_text.text! + "\t"+String(s+1)+": "+recipe.steps[s] + "\n"
+    }
+    re_text.text = re_text.text! + "\nDescription: "+recipe.description + "\n"
   }
   
   // MARK: - Navigation
