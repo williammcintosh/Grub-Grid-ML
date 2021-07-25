@@ -5,7 +5,7 @@ import CloudKit
 
 class DetailTableViewController: UITableViewController {
   // MARK: - Outlets
-  @IBOutlet weak var CTLabel: UILabel!
+  //@IBOutlet weak var CTLabel: UILabel!
   
   // MARK: - Properties
   var recipe: Recipe?
@@ -77,7 +77,7 @@ class DetailTableViewController: UITableViewController {
   private func setup() {
     guard let recipe = recipe else { return }
     title = recipe.name
-    CTLabel.text = recipe.description
+    //CTLabel.text = recipe.description
   }
   
   // MARK: - Navigation

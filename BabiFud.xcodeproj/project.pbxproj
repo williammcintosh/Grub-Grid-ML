@@ -28,9 +28,9 @@
 
 /* Begin PBXFileReference section */
 		0941407826A608910078EF93 /* DataFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFactory.swift; sourceTree = "<group>"; };
-		094D46D426A629E7006F348A /* 100_filtered_RAW_interactions.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 100_filtered_RAW_interactions.csv; path = ../../../../../DataSciencePractice/100_filtered_RAW_interactions.csv; sourceTree = "<group>"; };
-		094D46DB26A62C01006F348A /* 100_filtered_RAW_recipes.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 100_filtered_RAW_recipes.csv; path = ../../../../../DataSciencePractice/100_filtered_RAW_recipes.csv; sourceTree = "<group>"; };
-		094D46DF26A62E69006F348A /* 100_recipes.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 100_recipes.csv; path = ../../../../../DataSciencePractice/100_recipes.csv; sourceTree = "<group>"; };
+		094D46D426A629E7006F348A /* 100_filtered_RAW_interactions.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 100_filtered_RAW_interactions.csv; path = ../../../College/CS/100_filtered_RAW_interactions.csv; sourceTree = "<group>"; };
+		094D46DB26A62C01006F348A /* 100_filtered_RAW_recipes.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 100_filtered_RAW_recipes.csv; path = ../../../College/CS/100_filtered_RAW_recipes.csv; sourceTree = "<group>"; };
+		094D46DF26A62E69006F348A /* 100_recipes.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 100_recipes.csv; path = ../../../College/CS/100_recipes.csv; sourceTree = "<group>"; };
 		0993F22326A3B5DA00D14046 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		5394F02421864DF4006E754C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A151C52522EFD2C6005120E7 /* NearbyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyCell.swift; sourceTree = "<group>"; };
