@@ -30,11 +30,11 @@ class Model {
     //let searchText = "arriba   baked winter squash mexican style"
     //let predicate = NSPredicate(format: "name == %@",searchText)
    
-    // RETURNS INGREDIENTS WITH BUTTER
+    // RETURNS INGREDIENTS WITH BUTTER (SINGLE):
     //let searchText = "butter"
     //let predicate = NSPredicate(format: "ANY ingredients == %@",searchText)
     
-    // RETURNS INGREDIENTS WITH KEYWORD:
+    // RETURNS INGREDIENTS WITH KEYWORDS (MULTIPLE):
     let searchText: [String] = ["butter","Butter","french bread"]
     let predicate = NSPredicate (format: "ANY ingredients IN %@",argumentArray: [searchText])
     
