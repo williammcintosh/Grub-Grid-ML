@@ -5,10 +5,8 @@ import CloudKit
 
 class DetailTableViewController: UITableViewController {
   // MARK: - Outlets
-  @IBOutlet weak var recipe_desc_text: UILabel!
-  @IBOutlet weak var recipe_name_text: UILabel!
-  @IBOutlet weak var recipe_ingr_text: UILabel!
   
+  @IBOutlet weak var re_text: UITextView!
   // MARK: - Properties
   var recipe: Recipe?
   
@@ -39,6 +37,7 @@ class DetailTableViewController: UITableViewController {
       print("\t"+String(s)+": "+recipe.ingredients[s])
     }
   }
+ 
   
   @IBAction func WritingToCKRecord(_ sender: UIButton) {
     print("Submission Sent")
@@ -89,13 +88,27 @@ class DetailTableViewController: UITableViewController {
   private func setup() {
     guard let recipe = recipe else { return }
     //title = recipe.name
-    recipe_name_text.text = recipe.name
-    recipe_desc_text.text = recipe.description
-    recipe_ingr_text.text = ""
+    re_text.text = "Name:\n" + recipe.name + "\n\nIngredients:\n"
     for s in 0..<recipe.ingredients.count {
-      recipe_ingr_text.text = recipe_ingr_text.text! + recipe.ingredients[s] + "\n"
+      re_text.text = re_text.text! + String(s+1) + ": " + recipe.ingredients[s] + "\n"
     }
-
+    re_text.text = re_text.text! + "Minutes:\n" + String(recipe.minutes)
+/*
+    re_text.text = re_text.text! + "\n\nNutrition:\n"
+    re_text.text = re_text.text! + "\tCalories: " + String(recipe.nutrition[0])+"\n"
+    re_text.text = re_text.text! + "\tTotal Fat " + String(recipe.nutrition[1])+"\n"
+    re_text.text = re_text.text! + "\t %Daily Sugar : " + String(recipe.nutrition[2])+"\n"
+    re_text.text = re_text.text! + "\t %Daily Sodium: " + String(recipe.nutrition[3])+"\n"
+    re_text.text = re_text.text! + "\t %Daily Fiber: " + String(recipe.nutrition[4])+"\n"
+    re_text.text = re_text.text! + "\t Cholesterol: " + String(recipe.nutrition[5])+"\n"
+    re_text.text = re_text.text! + "\t %Daily Carbohydrate: " + String(recipe.nutrition[6])+"\n"
+*/
+    re_text.text = re_text.text! + "\nNumber of Steps: " + String(recipe.n_steps) + "\n"
+    re_text.text = re_text.text! + "\nSteps:"
+    for s in 0..<recipe.steps.count {
+      re_text.text = re_text.text! + "\t"+String(s+1)+": "+recipe.steps[s] + "\n"
+    }
+    re_text.text = re_text.text! + "\nDescription: "+recipe.description + "\n"
   }
   
   // MARK: - Navigation
