@@ -36,14 +36,13 @@ class SelectionViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    let screenSize = UIScreen.main.bounds.size
-    let cellWidth = floor(screenSize.width * cellScale)
-    let cellHeight = floor(screenSize.height * cellScale)
-    let insetX = (view.bounds.width - cellWidth) / 2.0
-    let insetY = (view.bounds.height - cellHeight) / 2.0
+    //let screenSize = UIScreen.main.bounds.size
+    //let cellWidth = floor(screenSize.width * cellScale)
+    //let cellHeight = floor(screenSize.height * cellScale)
+    //let insetX = (view.bounds.width - cellWidth) / 2.0
+    //let insetY = (view.bounds.height - cellHeight) / 2.0
     
-    let layout = collectionView!.collectionViewLayout as!
-      UICollectionViewFlowLayout
+    //let layout = collectionView!.collectionViewLayout as! UICollectionViewFlowLayout
     
     collectionView.dataSource = self
   }
@@ -62,9 +61,9 @@ extension SelectionViewController: UICollectionViewDataSource {
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CarbohydratesCollectionViewCell", for: indexPath) as! CarbohydratesCollectionViewCell
-    let carbohydrates = carbohydrates[indexPath.item]
+    let carbs = carbohydrates[indexPath.item]
     
-    cell.carbohydrates = carbohydrates
+    cell.carbohydrates = carbs
     
     return cell
   }
