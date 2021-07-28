@@ -9,6 +9,9 @@ class Model {
   let publicDB: CKDatabase
   let privateDB: CKDatabase
   
+  var carbohydrate = "rice"
+  var vegetable = "tomatoes"
+  
   // MARK: - Properties
   //private(set) var establishments: [Establishment] = []
   private(set) var recipes: [Recipe] = []
@@ -31,14 +34,30 @@ class Model {
     //let predicate = NSPredicate(format: "name == %@",searchText)
    
     // RETURNS INGREDIENTS WITH BUTTER (SINGLE):
-    //let searchText = "butter"
+    //let searchText = vegetable
     //let predicate = NSPredicate(format: "ANY ingredients == %@",searchText)
     
     // RETURNS INGREDIENTS WITH KEYWORDS (MULTIPLE):
-    let searchText: [String] = ["butter","Butter","french bread"]
-    let predicate = NSPredicate (format: "ANY ingredients IN %@",argumentArray: [searchText])
+    //let searchText: [String] = [carbohydrate,vegetable]
+    //let predicate = NSPredicate (format: "ANY ingredients IN %@",argumentArray: [searchText])
     
+    // RETURNS INFORMATION THAT MATCHES BOTH QUERY MEMBERS (AND):
+    //let searchText: [String] = [carbohydrate,vegetable]
+    //var predicate: NSPredicate
+    //predicate = NSPredicate (format: "ANY ingredients == %@","butter")
+    //predicate = NSPredicate (format: "ANY ingredients == %@","ham")
     //ANY ingredients in the array, but both searchText[] values need to match
+    
+    //let searchText = vegetable
+    //let predicate = NSPredicate(format: "ANY ingredients = %@ AND ANY ingredients = %@","butter", "ham"!)
+    //let deptPredicate = NSPredicate(format: "dept == %@", 1 as NSNumber)
+    let subdeptPredicate1 = NSPredicate(format: "ANY ingredients == %@", "ham")
+    let subdeptPredicate2 = NSPredicate(format: "ANY ingredients == %@", "butter")
+
+    //let orPredicate = NSCompoundPredicate(type: .or,
+                                          //subpredicates: [subdeptPredicate1, //subdeptPredicate2])
+
+    let predicate = NSCompoundPredicate(type: .and,subpredicates: [subdeptPredicate1, subdeptPredicate2])
 
     
     let sort = NSSortDescriptor(key: "recipe_id", ascending: false)
@@ -66,5 +85,9 @@ class Model {
         completion(nil)
       }
     }
+  }
+  
+  public func printVegetable(){
+    print(vegetable)
   }
 }
