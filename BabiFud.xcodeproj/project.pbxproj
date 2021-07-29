@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0941407926A608910078EF93 /* DataFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0941407826A608910078EF93 /* DataFactory.swift */; };
 		0993F22426A3B5DA00D14046 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0993F22326A3B5DA00D14046 /* Recipe.swift */; };
+		09A8BE1826B1116400D90921 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A8BE1726B1116400D90921 /* Rating.swift */; };
+		09A8BE1D26B1249C00D90921 /* 400000-800000_cleanedup_RAW_interactions.csv in Resources */ = {isa = PBXBuildFile; fileRef = 09A8BE1B26B1249C00D90921 /* 400000-800000_cleanedup_RAW_interactions.csv */; };
+		09A8BE1E26B1249C00D90921 /* 0-400000_cleanedup_RAW_interactions.csv in Resources */ = {isa = PBXBuildFile; fileRef = 09A8BE1C26B1249C00D90921 /* 0-400000_cleanedup_RAW_interactions.csv */; };
 		2E0D9D2526AE2F3500061BF7 /* Carbohydrates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0D9D2426AE2F3500061BF7 /* Carbohydrates.swift */; };
 		2E0D9D2726AE40C100061BF7 /* CarbohydratesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0D9D2626AE40C000061BF7 /* CarbohydratesCollectionViewCell.swift */; };
 		2E0D9D2926AE652900061BF7 /* SelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0D9D2826AE652900061BF7 /* SelectionViewController.swift */; };
@@ -21,7 +24,6 @@
 		A1ED8BB522E7DB7100924A89 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ED8BB422E7DB7100924A89 /* CloudKit.framework */; };
 		A1ED8BB922E7DD7500924A89 /* NearbyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1ED8BB822E7DD7500924A89 /* NearbyTableViewController.swift */; };
 		A1ED8BBB22E7DEE900924A89 /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1ED8BBA22E7DEE900924A89 /* DetailTableViewController.swift */; };
-		A1ED8BBF22E7E08C00924A89 /* Establishment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1ED8BBE22E7E08C00924A89 /* Establishment.swift */; };
 		D2A5F2091F4A9144005CD714 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A5F2071F4A9144005CD714 /* Main.storyboard */; };
 		D2A5F20B1F4A9144005CD714 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2A5F20A1F4A9144005CD714 /* Assets.xcassets */; };
 		D2A5F2211F4A96D0005CD714 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A5F2201F4A96D0005CD714 /* AppDelegate.swift */; };
@@ -30,6 +32,9 @@
 /* Begin PBXFileReference section */
 		0941407826A608910078EF93 /* DataFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFactory.swift; sourceTree = "<group>"; };
 		0993F22326A3B5DA00D14046 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		09A8BE1726B1116400D90921 /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
+		09A8BE1B26B1249C00D90921 /* 400000-800000_cleanedup_RAW_interactions.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "400000-800000_cleanedup_RAW_interactions.csv"; path = "../../../../DataSciencePractice/400000-800000_cleanedup_RAW_interactions.csv"; sourceTree = "<group>"; };
+		09A8BE1C26B1249C00D90921 /* 0-400000_cleanedup_RAW_interactions.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "0-400000_cleanedup_RAW_interactions.csv"; path = "../../../../DataSciencePractice/0-400000_cleanedup_RAW_interactions.csv"; sourceTree = "<group>"; };
 		2E0D9D2426AE2F3500061BF7 /* Carbohydrates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carbohydrates.swift; sourceTree = "<group>"; };
 		2E0D9D2626AE40C000061BF7 /* CarbohydratesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbohydratesCollectionViewCell.swift; sourceTree = "<group>"; };
 		2E0D9D2826AE652900061BF7 /* SelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionViewController.swift; sourceTree = "<group>"; };
@@ -43,7 +48,6 @@
 		A1ED8BB422E7DB7100924A89 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		A1ED8BB822E7DD7500924A89 /* NearbyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyTableViewController.swift; sourceTree = "<group>"; };
 		A1ED8BBA22E7DEE900924A89 /* DetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; tabWidth = 2; };
-		A1ED8BBE22E7E08C00924A89 /* Establishment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Establishment.swift; sourceTree = "<group>"; };
 		D2A5F2001F4A9144005CD714 /* BabiFud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BabiFud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2A5F2081F4A9144005CD714 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D2A5F20A1F4A9144005CD714 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -74,6 +78,8 @@
 		A1ED8BAA22E7D90400924A89 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				09A8BE1C26B1249C00D90921 /* 0-400000_cleanedup_RAW_interactions.csv */,
+				09A8BE1B26B1249C00D90921 /* 400000-800000_cleanedup_RAW_interactions.csv */,
 				0941407826A608910078EF93 /* DataFactory.swift */,
 				A1ED8BB822E7DD7500924A89 /* NearbyTableViewController.swift */,
 				A1ED8BBA22E7DEE900924A89 /* DetailTableViewController.swift */,
@@ -88,11 +94,11 @@
 			isa = PBXGroup;
 			children = (
 				A1ED8BAD22E7D95900924A89 /* Model.swift */,
-				A1ED8BBE22E7E08C00924A89 /* Establishment.swift */,
 				0993F22326A3B5DA00D14046 /* Recipe.swift */,
 				A151C52A22EFD6C3005120E7 /* Note.swift */,
 				2E0D9D2426AE2F3500061BF7 /* Carbohydrates.swift */,
 				2E0D9D2626AE40C000061BF7 /* CarbohydratesCollectionViewCell.swift */,
+				09A8BE1726B1116400D90921 /* Rating.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -201,6 +207,8 @@
 			files = (
 				5394F02521864DF5006E754C /* LaunchScreen.storyboard in Resources */,
 				D2A5F20B1F4A9144005CD714 /* Assets.xcassets in Resources */,
+				09A8BE1E26B1249C00D90921 /* 0-400000_cleanedup_RAW_interactions.csv in Resources */,
+				09A8BE1D26B1249C00D90921 /* 400000-800000_cleanedup_RAW_interactions.csv in Resources */,
 				D2A5F2091F4A9144005CD714 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -212,7 +220,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1ED8BBF22E7E08C00924A89 /* Establishment.swift in Sources */,
 				2E0D9D2526AE2F3500061BF7 /* Carbohydrates.swift in Sources */,
 				A145EF502300C15D00033406 /* NearbyCell.swift in Sources */,
 				2E0D9D2926AE652900061BF7 /* SelectionViewController.swift in Sources */,
@@ -224,6 +231,7 @@
 				0941407926A608910078EF93 /* DataFactory.swift in Sources */,
 				2E8F57C526B0BBAF002FB381 /* BasicSelectionViewController.swift in Sources */,
 				0993F22426A3B5DA00D14046 /* Recipe.swift in Sources */,
+				09A8BE1826B1116400D90921 /* Rating.swift in Sources */,
 				A1ED8BB922E7DD7500924A89 /* NearbyTableViewController.swift in Sources */,
 				D2A5F2211F4A96D0005CD714 /* AppDelegate.swift in Sources */,
 			);

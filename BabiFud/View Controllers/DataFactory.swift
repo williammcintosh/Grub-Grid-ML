@@ -1,45 +1,32 @@
 import Foundation
 
 struct RatingObj: Identifiable {
-  var index: String = ""
-  var user_id: String = ""
-  var recipe_id: String = ""
-  var rating: String = ""
+  var user_id: Int64 = 0
+  var recipe_id: Int64 = 0
+  var rating: Int64 = 0
+  var freq: Int64 = 0
   var id = UUID()
   
   init(raw: [String]) {
-    index = raw[0]
-    user_id = raw[1]
-    recipe_id = raw[2]
-    rating = raw[3]
+    user_id = Int64(raw[1]) ?? 0
+    recipe_id = Int64(raw[2]) ?? 0
+    rating = Int64(raw[3]) ?? 0
+    freq = Int64(raw[4]) ?? 0
   }
 }
 
 struct RecipeObj: Identifiable {
-  //0="index",1="name",2="receip_id",3="minutes",4="nutrition",5="n_steps",6="steps",7="description",8="ingredients",9="n_ingredients"
-  var index: Int = 0
   var name: String = ""
   var recipe_id: Int = 0
-  var minutes: Int = 0
-  var nutrition: [Float] = []
-  var n_steps: Int = 0
   var steps: [String] = []
-  var description: String = ""
   var ingredients: [String] = []
-  var n_ingredients: Int = 0
   var id = UUID()
   
   init(raw: [String]) {
-    index = Int(raw[0].replacingOccurrences(of: "\"", with: "")) ?? 0
     name = raw[1]
-    recipe_id = Int(raw[2].replacingOccurrences(of: "\"", with: "")) ?? index
-    minutes = Int(raw[3].replacingOccurrences(of: "\"", with: "")) ?? 15
-    nutrition = ConvertStringToArrayOfFloats(rawData: raw[4])
-    n_steps = Int(raw[5].replacingOccurrences(of: "\"", with: "")) ?? 5
-    steps = ConvertStringToArrayOfStrings(rawData: raw[6])
-    description = raw[7]
-    ingredients = ConvertStringToArrayOfStrings(rawData: raw[8])
-    n_ingredients = Int(raw[8].replacingOccurrences(of: "\"", with: "")) ?? 5
+    recipe_id = Int(raw[2].replacingOccurrences(of: "\"", with: "")) ?? 0
+    steps = ConvertStringToArrayOfStrings(rawData: raw[3])
+    ingredients = ConvertStringToArrayOfStrings(rawData: raw[4])
   }
 }
 
@@ -72,76 +59,62 @@ func ConvertStringToArrayOfStrings(rawData: String) -> [String] {
 }
 
 
-func loadRatingCSV(from csvName: String) -> [RatingObj] {
-  var csvToStruct = [RatingObj]()
-  
+func loadRatingCSV(from csvName: String) {
   //locate the csv file
   guard let filePath = Bundle.main.path(forResource: csvName, ofType: "csv") else {
-    return []
+    return
   }
-  
   //convert contents of file to a very long string
   var data = ""
   do {
     data = try String(contentsOfFile: filePath)
   } catch {
     print(error)
-    return []
+    return
   }
-  
   //split the long string into rows
   var rows = data.components(separatedBy: "\n")
-  
   //Count number of columns
   let columnCount = rows.first?.components(separatedBy: ",").count
   //Removes headers
   rows.removeFirst()
-  
   //split each row into columns
-  for row in rows {
-    let csvColumns = row.components(separatedBy: ",")
+  for r in 0..<rows.count {
+    let csvColumns = rows[r].components(separatedBy: ",")
     if csvColumns.count == columnCount {
-      let testStruct = RatingObj.init(raw: csvColumns)
-      csvToStruct.append(testStruct)
+      if r == 0 {
+        let newRating = RatingObj.init(raw: csvColumns)
+        DetailTableViewController().UploadRatingToCKRecord(myRat: newRating, count: String(r))
+      }
     }
   }
-  
-  return csvToStruct
 }
 
-func loadRecipeCSV(from csvName: String) -> [RecipeObj] {
-  var csvToStruct = [RecipeObj]()
-  
+func loadRecipeCSV(from csvName: String){
   //locate the csv file
   guard let filePath = Bundle.main.path(forResource: csvName, ofType: "csv") else {
-    return []
+    return
   }
-  
   //convert contents of file to a very long string
   var data = ""
   do {
     data = try String(contentsOfFile: filePath)
   } catch {
     print(error)
-    return []
+    return
   }
-  
   //split the long string into rows
   var rows = data.components(separatedBy: "\n")
-  
   //Count number of columns
   let columnCount = rows.first?.components(separatedBy: "\",\"").count
   //Removes headers
   rows.removeFirst()
-  
   //split each row into columns
   for row in rows {
     let csvColumns = row.components(separatedBy: "\",\"")
     if csvColumns.count == columnCount {
-      let testStruct = RecipeObj.init(raw: csvColumns)
-      csvToStruct.append(testStruct)
+      let newRecipe = RecipeObj.init(raw: csvColumns)
+      DetailTableViewController().UploadRecipeToCKRecord(recipe: newRecipe, count: String(row))
     }
   }
-  
-  return csvToStruct
 }

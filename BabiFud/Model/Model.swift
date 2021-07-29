@@ -13,7 +13,6 @@ class Model {
   var vegetable = "tomatoes"
   
   // MARK: - Properties
-  //private(set) var establishments: [Establishment] = []
   private(set) var recipes: [Recipe] = []
 
   static var currentModel = Model()
@@ -34,32 +33,20 @@ class Model {
     //let predicate = NSPredicate(format: "name == %@",searchText)
    
     // RETURNS INGREDIENTS WITH BUTTER (SINGLE):
-    //let searchText = vegetable
-    //let predicate = NSPredicate(format: "ANY ingredients == %@",searchText)
+    //let predicate = NSPredicate(format: "ingredients CONTAINS %@","butter")
+    //let predicate = NSPredicate(format: "ingredients CONTAINS %@"," butter")
     
-    // RETURNS INGREDIENTS WITH KEYWORDS (MULTIPLE):
-    //let searchText: [String] = [carbohydrate,vegetable]
-    //let predicate = NSPredicate (format: "ANY ingredients IN %@",argumentArray: [searchText])
+    // OR Predicate for the first word with 'OR' without the space:
+    let searchTextA: [String] = [carbohydrate," "+carbohydrate,carbohydrate+"s",carbohydrate+"es"]
+    let subPred1 = NSPredicate (format: "ANY ingredients IN %@",argumentArray: [searchTextA])
     
-    // RETURNS INFORMATION THAT MATCHES BOTH QUERY MEMBERS (AND):
-    //let searchText: [String] = [carbohydrate,vegetable]
-    //var predicate: NSPredicate
-    //predicate = NSPredicate (format: "ANY ingredients == %@","butter")
-    //predicate = NSPredicate (format: "ANY ingredients == %@","ham")
-    //ANY ingredients in the array, but both searchText[] values need to match
+    // OR Predicate for the first word with 'OR' without the space:
+    let searchTextB: [String] = [vegetable," "+vegetable,vegetable+"s",vegetable+"es"]
+    let subPred2 = NSPredicate (format: "ANY ingredients IN %@",argumentArray: [searchTextB])
     
-    //let searchText = vegetable
-    //let predicate = NSPredicate(format: "ANY ingredients = %@ AND ANY ingredients = %@","butter", "ham"!)
-    //let deptPredicate = NSPredicate(format: "dept == %@", 1 as NSNumber)
-    let subdeptPredicate1 = NSPredicate(format: "ANY ingredients == %@", "ham")
-    let subdeptPredicate2 = NSPredicate(format: "ANY ingredients == %@", "butter")
+    // AND compound predicate combing both of the ones above:
+    let predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [subPred1, subPred2])
 
-    //let orPredicate = NSCompoundPredicate(type: .or,
-                                          //subpredicates: [subdeptPredicate1, //subdeptPredicate2])
-
-    let predicate = NSCompoundPredicate(type: .and,subpredicates: [subdeptPredicate1, subdeptPredicate2])
-
-    
     let sort = NSSortDescriptor(key: "recipe_id", ascending: false)
     let query = CKQuery(recordType: "Recipe", predicate: predicate)
     query.sortDescriptors = [sort]
@@ -80,12 +67,25 @@ class Model {
       guard let results = results else { return }
       self.recipes = results.compactMap {
         Recipe(record: $0, database: self.publicDB)
+        
+      }
+      for r in self.recipes {
+        self.PrettyPrintRecipes(rName: r.name, rId: String(r.recipe_id), rIng: r.ingredients)
       }
       DispatchQueue.main.async {
         completion(nil)
       }
     }
   }
+
+  func PrettyPrintRecipes(rName: String, rId: String, rIng: [String]) {
+    print("Name: "+rName)
+    print("Recipe_id: "+rId)
+    print("Ingredients:")
+    for s in 0..<rIng.count {
+      print("\t"+String(s)+": "+rIng[s])
+    }
+}
   
   public func printVegetable(){
     print(vegetable)
