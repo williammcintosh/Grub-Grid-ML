@@ -29,11 +29,11 @@
             </objects>
             <point key="canvasLocation" x="-849" y="728"/>
         </scene>
-        <!--Nearby-->
+        <!--Select-->
         <scene sceneID="rN7-sy-JRs">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="D1F-fC-9R8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Nearby" image="mappin.and.ellipse" catalog="system" id="sYD-FB-m0H"/>
+                    <tabBarItem key="tabBarItem" title="Select" image="plus" catalog="system" id="sYD-FB-m0H"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="68H-F3-nAP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
@@ -106,7 +106,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iB8-4S-ylE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="956" y="369.26536731634184"/>
+            <point key="canvasLocation" x="956" y="370"/>
         </scene>
         <!--Detail Table View Controller-->
         <scene sceneID="vpd-6O-MkS">
@@ -117,7 +117,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="hzc-7B-RK7">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="qpp-to-rR1">
@@ -168,7 +168,7 @@
                             </constraints>
                         </view>
                         <textView key="tableFooterView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" id="esQ-kS-LDk">
-                            <rect key="frame" x="0.0" y="174" width="375" height="170"/>
+                            <rect key="frame" x="0.0" y="79" width="375" height="443"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -176,36 +176,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
-                        <sections>
-                            <tableViewSection id="IxF-Aa-0iO">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="NoteCell" textLabel="LdG-hx-zDy" style="IBUITableViewCellStyleDefault" id="5ve-hF-euN">
-                                        <rect key="frame" x="16" y="76" width="343" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5ve-hF-euN" id="dls-nI-t3U">
-                                            <rect key="frame" x="0.0" y="0.0" width="317.5" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LdG-hx-zDy">
-                                                    <rect key="frame" x="16" y="0.0" width="293.5" height="44"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <color key="tintColor" name="rw-green"/>
-                                        <connections>
-                                            <segue destination="s4h-fg-Tkc" kind="show" identifier="ShowNotes" destinationCreationSelector="notesSegueWithCoder:sender:" id="c9m-85-8Ok"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection id="iWi-Ui-IdL">
-                                <cells/>
-                            </tableViewSection>
-                        </sections>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="Rgh-V8-nIc" id="bWy-U2-esD"/>
                             <outlet property="delegate" destination="Rgh-V8-nIc" id="MQm-nr-iPr"/>
@@ -512,7 +483,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="1Wf-S7-ndK" kind="show" id="2mL-Yh-ak8"/>
+                                    <segue destination="1Wf-S7-ndK" kind="showDetail" id="hDn-mR-Qx2"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -612,13 +583,43 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="khD-PN-qtg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1661.5999999999999" y="1077.2113943028487"/>
+            <point key="canvasLocation" x="956" y="1078"/>
         </scene>
-        <!--Notes-->
+        <!--View Controller-->
+        <scene sceneID="3t9-97-Zzf">
+            <objects>
+                <viewController id="BwZ-N1-KG4" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OsU-ai-03N">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IRi-Da-RK5">
+                                <rect key="frame" x="107" y="222" width="160" height="57"/>
+                                <color key="backgroundColor" systemColor="linkColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="2BM-cW-gUI"/>
+                                    <constraint firstAttribute="height" constant="57" id="vMg-zx-bab"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <state key="normal" title="Find Meals">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xKq-Ea-lwE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="SG1-sD-M28"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WYw-Rm-DMg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="956" y="1733"/>
+        </scene>
+        <!--Plan-->
         <scene sceneID="5Bf-ya-aJV">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iKc-QB-YyX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Notes" image="doc.text" catalog="system" id="YEY-QY-wev"/>
+                    <tabBarItem key="tabBarItem" title="Plan" image="calendar" catalog="system" id="YEY-QY-wev"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="rHQ-aj-vYl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
@@ -626,7 +627,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="M25-sb-oPR" kind="relationship" relationship="rootViewController" id="VEK-Ce-a34"/>
+                        <segue destination="M25-sb-oPR" kind="relationship" relationship="rootViewController" id="8wb-sY-ld1"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VaG-lc-S3q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -820,33 +821,30 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SEE-xa-U7H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="956" y="1079"/>
+            <point key="canvasLocation" x="1822" y="1078"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Rh3-Tp-95o"/>
-        <segue reference="2mL-Yh-ak8"/>
+        <segue reference="C6i-EA-Yat"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="beansImage" width="6962" height="4637"/>
         <image name="breadImage" width="3872" height="2576"/>
+        <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="carrotImage" width="3329" height="4993"/>
         <image name="cornImage" width="3000" height="2000"/>
         <image name="cucumberImage" width="9600" height="9600"/>
-        <image name="doc.text" catalog="system" width="115" height="128"/>
         <image name="lettuceImage" width="2268" height="4032"/>
-        <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
         <image name="oatsImage" width="2838" height="4257"/>
         <image name="onionsImage" width="3888" height="2592"/>
         <image name="pastaImage" width="5568" height="3712"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="potatoesImage" width="2272" height="1704"/>
         <image name="riceImage" width="5472" height="3648"/>
         <image name="tomatoImage" width="4496" height="3000"/>
         <namedColor name="NavigationColor">
             <color red="0.30099999904632568" green="0.8190000057220459" blue="0.94599997997283936" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="rw-green">
-            <color red="0.0" green="0.40784313725490196" blue="0.21568627450980393" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="groupTableViewBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
