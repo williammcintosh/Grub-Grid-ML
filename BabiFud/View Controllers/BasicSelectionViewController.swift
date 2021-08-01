@@ -42,7 +42,7 @@ class BasicSelectionViewController: UIViewController {
     riceCover.isHidden = true;
     potatoCover.isHidden = true;
     
-    Model.currentModel.carbohydrate = "pasta"
+    Model.currentModel.carbohydrate = "noodles"
   }
   
   @IBAction func beanButton(_ sender: Any) {
@@ -104,7 +104,7 @@ class BasicSelectionViewController: UIViewController {
     onionCover.isHidden = true;
     cucumberCover.isHidden = true;
     
-    Model.currentModel.carbohydrate = "corn"
+    Model.currentModel.vegetable = "corn"
   }
   @IBAction func carrotButton(_ sender: Any) {
     cornCover.isHidden = true;
@@ -114,7 +114,7 @@ class BasicSelectionViewController: UIViewController {
     onionCover.isHidden = true;
     cucumberCover.isHidden = true;
     
-    Model.currentModel.carbohydrate = "carrot"
+    Model.currentModel.vegetable = "carrot"
   }
   @IBAction func lettuceButton(_ sender: Any) {
     cornCover.isHidden = true;
@@ -124,7 +124,7 @@ class BasicSelectionViewController: UIViewController {
     onionCover.isHidden = true;
     cucumberCover.isHidden = true;
     
-    Model.currentModel.carbohydrate = "lettuce"
+    Model.currentModel.vegetable = "lettuce"
   }
   @IBAction func tomatoButton(_ sender: Any) {
     cornCover.isHidden = true;
@@ -134,7 +134,7 @@ class BasicSelectionViewController: UIViewController {
     onionCover.isHidden = true;
     cucumberCover.isHidden = true;
     
-    Model.currentModel.carbohydrate = "tomato"
+    Model.currentModel.vegetable = "tomato"
   }
   @IBAction func onionButton(_ sender: Any) {
     cornCover.isHidden = true;
@@ -144,7 +144,7 @@ class BasicSelectionViewController: UIViewController {
     onionCover.isHidden = false;
     cucumberCover.isHidden = true;
     
-    Model.currentModel.carbohydrate = "onion"
+    Model.currentModel.vegetable = "onion"
   }
   @IBAction func cucumberButton(_ sender: Any) {
     cornCover.isHidden = true;
@@ -154,7 +154,7 @@ class BasicSelectionViewController: UIViewController {
     onionCover.isHidden = true;
     cucumberCover.isHidden = false;
     
-    Model.currentModel.carbohydrate = "cucumber"
+    Model.currentModel.vegetable = "cucumber"
   }
   
   override func viewDidLoad() {

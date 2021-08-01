@@ -8,6 +8,15 @@ class DetailTableViewController: UITableViewController {
   //@IBOutlet weak var CTLabel: UILabel!
   
   @IBOutlet weak var re_text: UITextView!
+  @IBOutlet weak var removeOutlet: UIButton!
+  @IBOutlet weak var addOutlet: UIButton!
+  
+  
+  @IBAction func removeButton(_ sender: Any) {
+  }
+  @IBAction func addButton(_ sender: Any) {
+  }
+  
   // MARK: - Properties
   var recipe: Recipe?
   
@@ -72,6 +81,10 @@ class DetailTableViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    removeOutlet.layer.cornerRadius = 10
+    removeOutlet.clipsToBounds = true
+    addOutlet.layer.cornerRadius = 10
+    addOutlet.clipsToBounds = true
     setup()
   }
   
