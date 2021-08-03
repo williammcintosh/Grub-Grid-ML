@@ -156,7 +156,8 @@ class Model {
     var returnStr: String = ""
     print("NAME = "+searchResult)
     print("https://grubgridimagesearch.herokuapp.com/grabimage/"+searchResult)
-    let url = URL(string: "https://grubgridimagesearch.herokuapp.com/grabimage/\(searchResult)")
+    let updatedStr = replaceSpacesWithWebSpaceFillers(searchResult: searchResult)
+    let url = URL(string: "https://grubgridimagesearch.herokuapp.com/grabimage/\(updatedStr)")
     
     if url == nil {
       print("ITS NIL!")
@@ -189,5 +190,9 @@ class Model {
     }
     task.resume()
     return returnStr
+  }
+  
+  func replaceSpacesWithWebSpaceFillers(searchResult: String) ->String{
+    return searchResult.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil)
   }
 }
