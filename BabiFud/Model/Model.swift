@@ -155,8 +155,16 @@ class Model {
   func GetImageLink(searchResult: String) -> String{
     var returnStr: String = ""
     print("NAME = "+searchResult)
-    let url = URL(string: "https://grubgridimagesearch.herokuapp.com/grabimage/"+searchResult)
-  
+    print("https://grubgridimagesearch.herokuapp.com/grabimage/"+searchResult)
+    let url = URL(string: "https://grubgridimagesearch.herokuapp.com/grabimage/\(searchResult)")
+    
+    if url == nil {
+      print("ITS NIL!")
+    } else {
+      print("IT WORKED!")
+    }
+    
+    
     guard let requestUrl = url else { fatalError() }
     // Create URL Request
     var request = URLRequest(url: requestUrl)
