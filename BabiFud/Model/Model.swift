@@ -12,6 +12,9 @@ class Model {
   var carbohydrate = "rice"
   var vegetable = "tomatoes"
   
+  let nu_recipes: [Int] = [254921,361650,215716,248350]
+  let nu_ratings: [Int] = [0,1,0,1]
+  
   // MARK: - Properties
   private(set) var recipes: [Recipe] = []
 
@@ -25,8 +28,7 @@ class Model {
   
   @objc func refresh(_ completion: @escaping (Error?) -> Void) {
     var queries = [CKQuery] ()
-    let nu_recipes: [Int] = [254921,361650,215716,248350]
-    let nu_ratings: [Int] = [0,1,0,1]
+
     var sim_user_id: Int64 = 0
     if (nu_ratings.count % 2 == 0) && (nu_recipes.count % 2 == 0) {
       sim_user_id = GetCosineSimilarity(rec:nu_recipes,rat:nu_ratings)
