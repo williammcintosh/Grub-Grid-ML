@@ -10,6 +10,7 @@ class Recipe {
   static let recordType = "Recipe"
   private let id: CKRecord.ID
   let database: CKDatabase
+  let recipeURL: String
   let name: String
   //let description: String
   let recipe_id: Int64
@@ -24,6 +25,7 @@ class Recipe {
     id = record.recordID
     self.name = record["name"] as? String ?? ""
     self.database = database
+    self.recipeURL = "https://www.mcdonalds.com/is/image/content/dam/uk/nfl/nutrition/nfl-product/product/products/mcdonalds-Big-Mac.jpg"
     //self.description = record["description"] as? String ?? ""
     self.recipe_id = record["recipe_id"] as? Int64 ?? 0
     self.ingredients = record["ingredients"] as? [String] ?? [""]
