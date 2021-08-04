@@ -26,8 +26,8 @@ class Recipe {
     let newName: String = record["name"] as? String ?? ""
     self.name = newName
     self.database = database
-    //self.recipeURL = "https://www.mcdonalds.com/is/image/content/dam/uk/nfl/nutrition/nfl-product/product/products/mcdonalds-Big-Mac.jpg"
-    self.recipeURL = Model.currentModel.GetImageLink(searchResult: newName)
+    self.recipeURL = "https://www.mcdonalds.com/is/image/content/dam/uk/nfl/nutrition/nfl-product/product/products/mcdonalds-Big-Mac.jpg"
+    //self.recipeURL = Model.currentModel.GetImageLink(searchResult: newName)
     //self.description = record["description"] as? String ?? ""
     self.recipe_id = record["recipe_id"] as? Int64 ?? 0
     self.ingredients = record["ingredients"] as? [String] ?? [""]

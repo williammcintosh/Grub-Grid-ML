@@ -4,6 +4,9 @@ import CloudKit
 //import CreateML
 
 class DetailTableViewController: UITableViewController {
+  
+  var recipe: Recipe?
+  
   // MARK: - Outlets
   //@IBOutlet weak var CTLabel: UILabel!
   
@@ -13,12 +16,18 @@ class DetailTableViewController: UITableViewController {
   
   
   @IBAction func removeButton(_ sender: Any) {
+    guard let recipe = recipe else { return }
+    Model.currentModel.nu_recipes.append(Int(recipe.recipe_id))
+    Model.currentModel.nu_ratings.append(0)
   }
   @IBAction func addButton(_ sender: Any) {
+    guard let recipe = recipe else { return }
+    Model.currentModel.nu_recipes.append(Int(recipe.recipe_id))
+    Model.currentModel.nu_ratings.append(1)
   }
   
   // MARK: - Properties
-  var recipe: Recipe?
+
   
   func PrettyPrintRecipes(recipe: RecipeObj) {
     print("Name: "+recipe.name)
