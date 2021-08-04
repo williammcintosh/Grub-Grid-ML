@@ -26,15 +26,18 @@ class Recipe {
     let newName: String = record["name"] as? String ?? ""
     self.name = newName
     self.database = database
+    let semaphore = DispatchSemaphore(value: 0)  //1. create a counting semaphore
     var handlerUrl = "https://www.mcdonalds.com/is/image/content/dam/uk/nfl/nutrition/nfl-product/product/products/mcdonalds-Big-Mac.jpg"
     Model.currentModel.GetImageLink(searchResult: newName, urlCompletionHandler: { url, error in
       if let url = url {
         print("the url is: \(url)")
         handlerUrl = url
+        semaphore.signal()  //3. count it up
       }
     })
     print("HANDLERURL:")
     print(handlerUrl)
+    semaphore.wait()  //2. wait for finished counting
     self.recipeURL = handlerUrl
     //self.description = record["description"] as? String ?? ""
     self.recipe_id = record["recipe_id"] as? Int64 ?? 0
