@@ -68,9 +68,9 @@ class Model {
       let newrecipe = Recipe(record: record, database: self.publicDB)
       newItems.append(newrecipe!)
     })
-    for r in self.recipes {
-      self.PrettyPrintRecipes(rName: r.name, rId: String(r.recipe_id), rIng: r.ingredients)
-    }
+    //for r in self.recipes {
+      //self.PrettyPrintRecipes(rName: r.name, rId: String(r.recipe_id), rIng: r.ingredients)
+    //}
     publicDB.add(operation)
   }
   //Separating this into a different function is just for readability
@@ -89,9 +89,9 @@ class Model {
         Recipe(record: $0, database: self.publicDB)
         
       }
-      for r in self.recipes {
-        self.PrettyPrintRecipes(rName: r.name, rId: String(r.recipe_id), rIng: r.ingredients)
-      }
+      //for r in self.recipes {
+        //self.PrettyPrintRecipes(rName: r.name, rId: String(r.recipe_id), rIng: r.ingredients)
+      //}
       DispatchQueue.main.async {
         completion(nil)
       }
@@ -188,22 +188,22 @@ class Model {
     // Send HTTP Request
     let task = URLSession.shared.dataTask(with: request, completionHandler: { data, response, error in
       // Check if Error took place
-        if let error = error {
-            print("Error took place \(error)")
-            return
-        }
-        // Read HTTP Response Status code
-        if let response = response as? HTTPURLResponse {
-            print("Response HTTP Status code for GetImageLink: \(response.statusCode)")
-        }
-        // Convert HTTP Response Data to a simple String
-        if let data = data, let dataString = String(data: data, encoding: .utf8) {
-            print("Response data string for GetImageLink:\n \(dataString)")
-            urlCompletionHandler(dataString, nil)
-        }
-      })
-      task.resume()
-      return
+      if let error = error {
+          print("Error took place \(error)")
+          return
+      }
+      // Read HTTP Response Status code
+      if let response = response as? HTTPURLResponse {
+          print("Response HTTP Status code for GetImageLink: \(response.statusCode)")
+      }
+      // Convert HTTP Response Data to a simple String
+      if let data = data, let dataString = String(data: data, encoding: .utf8) {
+          print("Response data string for GetImageLink:\n \(dataString)")
+          urlCompletionHandler(dataString, nil)
+      }
+    })
+    task.resume()
+    return
   }
   
   func replaceSpacesWithWebSpaceFillers(searchResult: String) ->String{

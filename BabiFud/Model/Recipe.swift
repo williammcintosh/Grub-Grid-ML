@@ -33,6 +33,8 @@ class Recipe {
         handlerUrl = url
       }
     })
+    print("HANDLERURL:")
+    print(handlerUrl)
     self.recipeURL = handlerUrl
     //self.description = record["description"] as? String ?? ""
     self.recipe_id = record["recipe_id"] as? Int64 ?? 0
