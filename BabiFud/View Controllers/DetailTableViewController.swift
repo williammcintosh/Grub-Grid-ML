@@ -44,7 +44,7 @@ class DetailTableViewController: UITableViewController {
   
   @IBAction func WritingToCKRecord(_ sender: UIButton) {
     print("Submission Sent")
-    loadRatingCSV(from: "0-400000_cleanedup_RAW_interactions")
+    loadInterractionCSV(from: "0-25000_cleanedup_RAW_interactions")
   }
 
   func UploadRecipeToCKRecord(recipe: RecipeObj, count: String) {
@@ -87,14 +87,34 @@ class DetailTableViewController: UITableViewController {
       }
     }
   }
+  func UploadInterractionToCKRecord(myRat: InterractionObj, count: String) {
+    let itemRecord = CKRecord(recordType: "Interraction")
+    itemRecord["user_id"] = myRat.user_id as CKRecordValue
+    itemRecord["recipe_id"] = myRat.recipe_id as CKRecordValue
+    itemRecord["rating"] = myRat.rating as CKRecordValue
+    itemRecord["freq"] = myRat.freq as CKRecordValue
+
+    CKContainer.default().publicCloudDatabase.save(itemRecord) { (record, error) in
+      DispatchQueue.main.async {
+        if error == nil {
+          print("Saving number "+count+" user_id: "+String(myRat.user_id))
+            self.tableView.reloadData()
+        } else {
+          let ac = UIAlertController(title: "Error", message: "There was a problem submitting your suggestion: \(error!.localizedDescription)", preferredStyle: .alert)
+          ac.addAction(UIAlertAction(title: "OK", style: .default))
+          self.present(ac, animated: true)
+        }
+      }
+    }
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    removeOutlet.layer.cornerRadius = 10
-    removeOutlet.clipsToBounds = true
-    addOutlet.layer.cornerRadius = 10
-    addOutlet.clipsToBounds = true
-    setup()
+    //removeOutlet.layer.cornerRadius = 10
+    //removeOutlet.clipsToBounds = true
+    //addOutlet.layer.cornerRadius = 10
+    //addOutlet.clipsToBounds = true
+    //setup()
   }
   
   private func setup() {
