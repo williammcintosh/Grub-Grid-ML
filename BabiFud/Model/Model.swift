@@ -12,7 +12,7 @@ class Model {
   var carbohydrate = "rice"
   var vegetable = "tomatoes"
   
-  var sim_user_id: Int64
+  var sim_user_id: Int
   
   var nu_recipes: [Int] = [254921,361650,215716,248350]
   var nu_ratings: [Int] = [0,1,0,1]
@@ -33,19 +33,12 @@ class Model {
     print("----------Refresh is getting called------------")
     var queries = [CKQuery] ()
     
-    print("****************************************************")
+    print("NU RECIPES:")
     print(nu_recipes)
-    print("****************************************************")
 
-    //var sim_user_id: Int64 = 0
     sim_user_id = GetCosineSimilarity(rec:nu_recipes,rat:nu_ratings)
-    print("**********************************************************************")
+    print("SIM USER ID")
     print(sim_user_id)
-    print("***********************************************************************")
-    
-    // RETURNS NAME SEARCH:
-    //let searchText = "arriba   baked winter squash mexican style"
-    //let predicate = NSPredicate(format: "name == %@",searchText)
     
     if(sim_user_id != 0) {
       queries.append(GetRecipesWithLikedIds(user: sim_user_id))
@@ -85,7 +78,7 @@ class Model {
     }
   }
   
-  func GetRecipesWithLikedIds(user: Int64) -> CKQuery {
+  func GetRecipesWithLikedIds(user: Int) -> CKQuery {
     let searchTextA: [String] = [carbohydrate," "+carbohydrate,carbohydrate+"s",carbohydrate+"es"]
     let subPred1 = NSPredicate (format: "ANY ingredients IN %@",argumentArray: [searchTextA])
     // OR Predicate for the first word with 'OR' without the space:
@@ -105,15 +98,32 @@ class Model {
     return CKQuery(recordType: "Recipe", predicate: predicate)
   }
   
-  func GetSimUserRecipeIds(user: Int64) -> [Int] {
-    let predicate = NSPredicate(format: "user_id == %@",user)
-    let priorityArray = [Int](_immutableCocoaArray: CKQuery(recordType: "Ratings", predicate: predicate))
-    print("%%%%%%%%%%%%%%%%%%%%%%%%")
-    print("The array elements are \(priorityArray)")
-    print("%%%%%%%%%%%%%%%%%%%%%%%%")
-    //return CKQuery(recordType: "Ratings", predicate: predicate)
-    return priorityArray
+  func GetSimUserRecipeIds(user: Int) -> [Int] {
+    //var priorityIds: [Int]
+    let predicate = NSPredicate(format: "user_id == %@",NSNumber(value: user))
+    let query = CKQuery(recordType: "Ratings", predicate: predicate)
+    return GetPriorityIds(query: query)
   }
+  
+  func GetPriorityIds(query: CKQuery) -> [Int] {
+    //This is a garbage initializer to make the comipler happy
+    var priorityList: [Int] = [1,2,3,4]
+    //This would be the goal
+    //var priorityList: [Int]
+    let operation = CKQueryOperation(query: query)
+    operation.desiredKeys = ["recipe_id"]
+    //operation.resultsLimit = 50
+    print("STUFF BELOW NEVER PRINTS. THE GOAL IS TO GAIN ACCESS TO THE RECIPE_IDs")
+    operation.recordFetchedBlock = { record in
+      let recipe = Recipe(record: record,database: self.publicDB)
+      print("RECIPE INFO")
+      print(recipe?.recipe_id)
+      //Appends onto the list of int but I get an error with the code below
+      //priorityList.append(Int(recipe.recipe_id))
+    }
+    return priorityList
+  }
+  
 
   func PrettyPrintRecipes(rName: String, rId: String, rIng: [String]) {
     print("Name: "+rName)
@@ -124,10 +134,10 @@ class Model {
     }
   }
   
-  func GetCosineSimilarity(rec: [Int], rat: [Int]) -> Int64{
+  func GetCosineSimilarity(rec: [Int], rat: [Int]) -> Int{
     let recArray = (rec.map{String($0)}).joined(separator: ",")
     let ratArray = (rat.map{String($0)}).joined(separator: ",")
-    var returnStr: Int64 = Model.currentModel.sim_user_id
+    var returnStr: Int = Model.currentModel.sim_user_id
     let url = URL(string: "https://grubgrid.herokuapp.com/cosine/"+recArray+","+ratArray)
     guard let requestUrl = url else { fatalError() }
     // Create URL Request
@@ -149,7 +159,7 @@ class Model {
         // Convert HTTP Response Data to a simple String
         if let data = data, let dataString = String(data: data, encoding: .utf8) {
           print("Response data string for GetCosineSimilarity:\n \(dataString)")
-          let convDataString: Int64? = Int64(dataString)
+          let convDataString: Int? = Int(dataString)
           returnStr = convDataString!
           Model.currentModel.sim_user_id = convDataString!
         }
