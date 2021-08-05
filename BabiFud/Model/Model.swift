@@ -33,11 +33,14 @@ class Model {
     print("----------Refresh is getting called------------")
     var query: CKQuery
     GetSimUserID(rec:nu_recipes,rat:nu_ratings)
+    /*
     if(sim_user_id != 0) {
       query = GetRecipesWithSimUserLikedIds(user: sim_user_id)
     } else {
       query = GetRecipes()
     }
+    */
+    query = GetRecipes()
     let sort = NSSortDescriptor(key: "recipe_id", ascending: false)
     query.sortDescriptors = [sort]
     
@@ -66,6 +69,7 @@ class Model {
     })
     operation.recordFetchedBlock = ( { (record) -> Void in
       let newrecipe = Recipe(record: record, database: self.publicDB)
+      Model.currentModel.UpdateImage(recipe: newrecipe!)
       newItems.append(newrecipe!)
     })
     //for r in self.recipes {
@@ -73,6 +77,25 @@ class Model {
     //}
     publicDB.add(operation)
   }
+  
+  private func UpdateImage(recipe: Recipe) {
+    DispatchQueue.global().async{
+      var handlerUrl = ""
+      let semaphore = DispatchSemaphore(value: 0)  //1. create a counting semaphore
+      Model.currentModel.GetImageLink(searchResult: recipe.name, urlCompletionHandler: { url, error in
+        if let url = url {
+          print("the url is: \(url)")
+          handlerUrl = url
+          semaphore.signal()  //3. count it up
+        }
+      })
+      print("HANDLERURL:")
+      print(handlerUrl)
+      semaphore.wait()  //2. wait for finished counting
+      recipe.recipeURL = handlerUrl
+    }
+  }
+  
   //Separating this into a different function is just for readability
   private func AttachToMainThread(forQuery query: CKQuery,
     _ completion: @escaping (Error?) -> Void) {
