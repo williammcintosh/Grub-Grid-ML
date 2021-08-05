@@ -120,14 +120,6 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="qpp-to-rR1">
-                                    <rect key="frame" x="160" y="0.0" width="54" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="LOAD"/>
-                                    <connections>
-                                        <action selector="WritingToCKRecord:" destination="Rgh-V8-nIc" eventType="touchUpInside" id="Wbr-vW-qJw"/>
-                                    </connections>
-                                </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XzL-EI-tnS">
                                     <rect key="frame" x="17" y="4" width="135" height="50"/>
                                     <color key="backgroundColor" red="1" green="0.22673212023457778" blue="0.22632527307663042" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

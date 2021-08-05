@@ -41,11 +41,6 @@ class DetailTableViewController: UITableViewController {
       print("\t"+String(s)+": "+recipe.ingredients[s])
     }
   }
-  
-  @IBAction func WritingToCKRecord(_ sender: UIButton) {
-    print("Submission Sent")
-    loadInterractionCSV(from: "0-25000_cleanedup_RAW_interactions")
-  }
 
   func UploadRecipeToCKRecord(recipe: RecipeObj, count: String) {
     let itemRecord = CKRecord(recordType: "Recipe")
@@ -110,11 +105,11 @@ class DetailTableViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    //removeOutlet.layer.cornerRadius = 10
-    //removeOutlet.clipsToBounds = true
-    //addOutlet.layer.cornerRadius = 10
-    //addOutlet.clipsToBounds = true
-    //setup()
+    removeOutlet.layer.cornerRadius = 10
+    removeOutlet.clipsToBounds = true
+    addOutlet.layer.cornerRadius = 10
+    addOutlet.clipsToBounds = true
+    setup()
   }
   
   private func setup() {
