@@ -4,4 +4,6 @@ The main goal of this app was to create a recipe recommendation based on two ing
 
 ### My Heroku Web Apps
 
-link to the [cosine similary heroku app](https://docs.google.com/presentation/d/1UOxqVQPsu5jEUn3_RZZYK4Ud9kSw2IJZe515e8RBYLw/edit?usp=sharing)
+Link to the [cosine similary heroku app](http://grubgrid.herokuapp.com/cosine/254921,361650,215716,248350,0,1,0,1)
+
+Link to the [Google Image Retrieval app](http://grubgridimagesearch.herokuapp.com/grabimage/authentic mulligatawny soup)
