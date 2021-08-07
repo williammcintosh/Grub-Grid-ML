@@ -34,6 +34,18 @@ class Recipe {
     //self.minutes = record["minutes"] as? Int64 ?? 0
     self.steps = record["steps"] as? [String] ?? [""]
     //self.n_steps = Int64(steps.count)
+    let semaphore = DispatchSemaphore(value: 0)  //1. create a counting semaphore
+    Model.currentModel.GetImageLink(searchResult: self.name, urlCompletionHandler: { url, error in
+      if let url = url {
+        //print("the url is: \(url)")
+        handlerUrl = url
+        semaphore.signal()  //3. count it up
+      }
+    })
+    //print("HANDLERURL:")
+    print(handlerUrl)
+    semaphore.wait()  //2. wait for finished counting
+    self.recipeURL = handlerUrl
   }
 }
 

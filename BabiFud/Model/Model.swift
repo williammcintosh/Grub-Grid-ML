@@ -69,7 +69,7 @@ class Model {
     })
     operation.recordFetchedBlock = ( { (record) -> Void in
       let newrecipe = Recipe(record: record, database: self.publicDB)
-      Model.currentModel.UpdateImage(recipe: newrecipe!)
+      //Model.currentModel.UpdateImage(recipe: newrecipe!)
       newItems.append(newrecipe!)
     })
     //for r in self.recipes {
