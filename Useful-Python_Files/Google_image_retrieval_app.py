@@ -5,9 +5,9 @@ app = Flask(__name__)
 
 @app.route('/grabimage/<string:search_term>')
 def cosine(search_term):
-    api_key = "AIzaSyDiK2NG92JUuCezLrWdpdT2t8JzAA8snuc"
+    api_key = "mykey"
     #resource = build("customsearch", 'v1', developerKey=api_key).cse()
-    result = resource.list(q=search_term, cx="0a2fb8613582786f9",searchType='image').execute()
+    result = resource.list(q=search_term, cx="myprojectid",searchType='image').execute()
     return str(result['items'][0]['link'])
 
 @app.route('/')
