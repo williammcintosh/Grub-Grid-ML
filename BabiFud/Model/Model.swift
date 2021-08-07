@@ -52,7 +52,7 @@ class Model {
   
   private func AttachToMainThread(forQuery operation: CKQueryOperation,
     _ completion: @escaping (Error?) -> Void) {
-    operation.resultsLimit = 10
+    operation.resultsLimit = 5
     var newItems = [Recipe]()
     operation.queryCompletionBlock = ( { (cursor, error)->Void in
         guard error == nil else {
