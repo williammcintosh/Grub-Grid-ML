@@ -10,9 +10,12 @@ class DetailTableViewController: UITableViewController {
   // MARK: - Outlets
   //@IBOutlet weak var CTLabel: UILabel!
   
-  @IBOutlet weak var re_text: UITextView!
+  @IBOutlet weak var ingredientsTextScrollView: UITextView!
+  @IBOutlet weak var stepsTextScrollView: UITextView!
   @IBOutlet weak var removeOutlet: UIButton!
   @IBOutlet weak var addOutlet: UIButton!
+  @IBOutlet weak var recipeImageView: UIImageView!
+  @IBOutlet weak var recipeNameLabel: UILabel!
   
   
   @IBAction func removeButton(_ sender: Any) {
@@ -27,8 +30,6 @@ class DetailTableViewController: UITableViewController {
   }
   
   // MARK: - Properties
-
-  
   func PrettyPrintRecipes(recipe: RecipeObj) {
     print("Name: "+recipe.name)
     print("Recipe_id: "+String(recipe.recipe_id))
@@ -114,15 +115,18 @@ class DetailTableViewController: UITableViewController {
   
   private func setup() {
     guard let recipe = recipe else { return }
+    
+    Model.currentModel.UpdateImage(recipe: recipe)
+    recipeImageView.downloaded(from: recipe.recipeURL)
+    recipeImageView.layer.cornerRadius = 15
+    recipeImageView.clipsToBounds = true
     //title = recipe.name
-    re_text.text = "Name:\n" + recipe.name + "\n\nIngredients:\n"
+    recipeNameLabel.text = recipe.name
     for s in 0..<recipe.ingredients.count {
-      re_text.text = re_text.text! + String(s+1) + ": " + recipe.ingredients[s] + "\n"
+      ingredientsTextScrollView.text = ingredientsTextScrollView.text! + "\t\t" + String(s+1) + ": " + recipe.ingredients[s] + "\n"
     }
-
-    re_text.text = re_text.text! + "\nSteps:"
     for s in 0..<recipe.steps.count {
-      re_text.text = re_text.text! + "\t"+String(s+1)+": "+recipe.steps[s] + "\n"
+      stepsTextScrollView.text = stepsTextScrollView.text! + "\t\t"+String(s+1)+": "+recipe.steps[s] + "\n"
     }
   }
   

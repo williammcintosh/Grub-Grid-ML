@@ -78,7 +78,7 @@ class Model {
     publicDB.add(operation)
   }
   
-  private func UpdateImage(recipe: Recipe) {
+  public func UpdateImage(recipe: Recipe) {
     DispatchQueue.global().async{
       var handlerUrl = ""
       let semaphore = DispatchSemaphore(value: 0)  //1. create a counting semaphore
