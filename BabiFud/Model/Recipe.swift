@@ -43,7 +43,7 @@ class Recipe {
       }
     })
     //print("HANDLERURL:")
-    print(handlerUrl)
+    //print(handlerUrl)
     semaphore.wait()  //2. wait for finished counting
     self.recipeURL = handlerUrl
   }

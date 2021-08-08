@@ -58,6 +58,8 @@ func ConvertStringToArrayOfFloats(rawData: String) -> [Float] {
   return arrayFloats
 }
 
+
+
 func ConvertStringToArrayOfStrings(rawData: String) -> [String] {
   var arrayStr: [String] = []
   var thing: String

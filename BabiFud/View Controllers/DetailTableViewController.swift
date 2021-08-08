@@ -20,13 +20,31 @@ class DetailTableViewController: UITableViewController {
   
   @IBAction func removeButton(_ sender: Any) {
     guard let recipe = recipe else { return }
-    Model.currentModel.nu_recipes.append(Int(recipe.recipe_id))
-    Model.currentModel.nu_ratings.append(0)
+    if Model.currentModel.nu_recipes.contains(Int(recipe.recipe_id)) == false {
+      Model.currentModel.nu_recipes.append(Int(recipe.recipe_id))
+      Model.currentModel.nu_ratings.append(0)
+      print("SIZE OF NU_RECIPE LIST: "+String(Model.currentModel.nu_recipes.count))
+
+      for i in 0 ..< Model.currentModel.nu_recipes.count {
+        let r_id = Model.currentModel.nu_recipes[i]
+        let r_ra = Model.currentModel.nu_ratings[i]
+        print(String(r_id)+" "+String(r_ra))
+      }
+    }
   }
   @IBAction func addButton(_ sender: Any) {
     guard let recipe = recipe else { return }
-    Model.currentModel.nu_recipes.append(Int(recipe.recipe_id))
-    Model.currentModel.nu_ratings.append(1)
+    if Model.currentModel.nu_recipes.contains(Int(recipe.recipe_id)) == false {
+      Model.currentModel.nu_recipes.append(Int(recipe.recipe_id))
+      Model.currentModel.nu_ratings.append(1)
+      print("SIZE OF NU_RECIPE LIST: "+String(Model.currentModel.nu_recipes.count))
+      
+      for i in 0 ..< Model.currentModel.nu_recipes.count {
+        let r_id = Model.currentModel.nu_recipes[i]
+        let r_ra = Model.currentModel.nu_ratings[i]
+        print(String(r_id)+" "+String(r_ra))
+      }
+    }
   }
   
   // MARK: - Properties
