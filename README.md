@@ -14,7 +14,7 @@
 
 ## Resources
 
-#### * Recommendation System
+#### - Recommendation System
 
 - [Datasets useful for recommendation systems](https://cseweb.ucsd.edu/~jmcauley/datasets.html)
 
