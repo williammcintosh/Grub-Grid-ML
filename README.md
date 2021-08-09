@@ -28,11 +28,11 @@
 
 - [Cosine Similarity Explained](https://www.sciencedirect.com/topics/computer-science/cosine-similarity)
 
-#### * Kaggle Dataset
+#### - Kaggle Dataset
 
 - [The dataset that we used for this project](https://www.kaggle.com/shuyangli94/food-com-recipes-and-user-interactions?select=PP_users.csv)
 
-#### Extraction Tools: Pandas, Numpy, SKLearn
+#### - Extraction Tools: Pandas, Numpy, SKLearn
 
 - [First time user's guide to Pandas](https://www.kaggle.com/kashnitsky/topic-1-exploratory-data-analysis-with-pandas)
 
@@ -44,23 +44,27 @@
 
 - [Converting matrices from dense to sparse](https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.load_npz.html#scipy.sparse.load_npz)
 
-#### CloudKit
+#### - CloudKit
 
 - [What is Cloud Kit?](https://www.youtube.com/watch?v=n6l7zZAwwDQ)
 
-- [NSPredicate Cheat Sheet](https://nspredicate.xyz/)
+- [Setting up Cloud Kit](https://rambo.codes/posts/2020-02-25-cloudkit-101)
+
+- [NSPredicate Cheat Sheets](https://nspredicate.xyz/) and [another one](https://nshipster.com/nspredicate/)
 
 - [The cloudkit template project I used](https://www.raywenderlich.com/4878052-cloudkit-tutorial-getting-started)
 
 - [Adding CKQueries to the main thread in Swift](https://jayeshkawli.ghost.io/ios-13-diffable-data-source-for-uitableview-and-uicollectionview/)
 
-#### Creating Web Apps: Heroku, Flask
+- [CKQuery Example Code](https://nsscreencast.com/episodes/260-cloudkit-querying)
+
+#### - Creating Web Apps: Heroku, Flask
 
 - [Creating a web app with Flask](https://www.moesif.com/blog/technical/restful/Guide-to-Creating-RESTful-APIs-using-Python-Flask-and-MongoDB/)
 
 - [Creating your first Heroku Web app from scratch](https://realpython.com/flask-by-example-part-1-project-setup/)
 
-#### Swift
+#### - Swift
 
 - [Apple's MLDataTable library isn't available for iOS](https://heartbeat.fritz.ai/working-with-create-mls-mldatatable-to-pre-process-non-image-data-424f916a093e)
 
@@ -70,7 +74,7 @@
 
 - [Returning a value from a closure function in Swift using a handler](https://fluffy.es/return-value-from-a-closure/)
 
-#### Google Programmable Search Engines
+#### - Google Programmable Search Engines
 
 - [What is a Google Programmable Search Engine?](https://developers.google.com/custom-search)
 
