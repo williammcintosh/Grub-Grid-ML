@@ -16,17 +16,17 @@ Link to my [Google Image Retrieval app](http://grubgridimagesearch.herokuapp.com
 
 #### Recommendation System
 
-[Datasets useful for recommendation systems](https://cseweb.ucsd.edu/~jmcauley/datasets.html)
+- [Datasets useful for recommendation systems](https://cseweb.ucsd.edu/~jmcauley/datasets.html)
 
-[Video explaining Matrix Factorization](https://www.youtube.com/watch?v=ZspR5PZemcs)
+- [Video explaining Matrix Factorization](https://www.youtube.com/watch?v=ZspR5PZemcs)
 
-[Research paper with mathematical formulas for matrix factorization](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.1087.147&rep=rep1&type=pdf)
+- [Research paper with mathematical formulas for matrix factorization](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.1087.147&rep=rep1&type=pdf)
 
-[Blog about Matrix Factorization with Python code](https://towardsdatascience.com/recommendation-system-matrix-factorization-d61978660b4b)
+- [Blog about Matrix Factorization with Python code](https://towardsdatascience.com/recommendation-system-matrix-factorization-d61978660b4b)
 
-[Collaborative Filtering explanation](https://towardsdatascience.com/3-approaches-to-build-a-recommendation-system-ce6a7a404576)
+- [Collaborative Filtering explanation](https://towardsdatascience.com/3-approaches-to-build-a-recommendation-system-ce6a7a404576)
 
-[Cosine Similarity Explained](https://www.sciencedirect.com/topics/computer-science/cosine-similarity)
+- [Cosine Similarity Explained](https://www.sciencedirect.com/topics/computer-science/cosine-similarity)
 
 #### Dataset
 
