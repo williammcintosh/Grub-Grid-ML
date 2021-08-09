@@ -29,6 +29,9 @@
 - [Cleaning up csvs with Pandas](https://realpython.com/python-data-cleaning-numpy-pandas/)
 - [Converting matrices from dense to sparse](https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.load_npz.html#scipy.sparse.load_npz)
 
+#### - Python
+- [Creating your first virtual environment in Python](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)
+
 #### - CloudKit
 - [What is Cloud Kit?](https://www.youtube.com/watch?v=n6l7zZAwwDQ)
 - [Setting up Cloud Kit](https://rambo.codes/posts/2020-02-25-cloudkit-101)
