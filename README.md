@@ -51,7 +51,7 @@
 - [What is a Google Programmable Search Engine?](https://developers.google.com/custom-search)
 - [Setting up your first Google Programmable Search Engine](https://www.youtube.com/watch?v=IBhdLRheKyM)
 
-## Public Domains Where I asked for Help
+### Public Domains Where I asked for Help
 - [Trying to get NSPredicate to prioritize returned values](https://stackoverflow.com/questions/68607519/nspredicate-prioritizing-returned-values?noredirect=1#comment121274651_68607519)
 - [Fetching results from a list of CKQueries](https://stackoverflow.com/questions/68613311/fetching-results-with-a-list-of-ckquery?noredirect=1#comment121260198_68613311)
 - [Helping connecting payment for my Google Programmable Search quota results](https://support.google.com/programmable-search/thread/120104489/how-do-i-make-my-programmable-search-engine-api-quota-unlimited?hl=en)
