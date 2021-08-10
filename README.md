@@ -2,6 +2,9 @@
 
 - The main goal of this app was to create a recipe recommendation based on two ingredients and "likes" and "dislikes" from the user.
 
+### Demo Video
+- [Link to the demonstration of the app](https://youtu.be/_Ul8uZky5iw)
+
 ### My Google Programmable Search Engine
 - Link to my [Google Programmable Search Engine](https://cse.google.com/cse?cx=0a2fb8613582786f9#gsc.tab=0&gsc.q=authentic%20mulligatawny%20soup)
 
