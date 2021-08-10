@@ -69,8 +69,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="160"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NIL" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nu9-KQ-xWj">
-                                            <rect key="frame" x="20" y="132" width="334" height="17"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                            <rect key="frame" x="20" y="119" width="334" height="30"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -867,7 +868,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Rh3-Tp-95o"/>
-        <segue reference="tC8-uv-9HP"/>
+        <segue reference="C6i-EA-Yat"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="beansImage" width="6962" height="4637"/>

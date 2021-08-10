@@ -139,7 +139,7 @@ class DetailTableViewController: UITableViewController {
     recipeImageView.layer.cornerRadius = 15
     recipeImageView.clipsToBounds = true
     //title = recipe.name
-    recipeNameLabel.text = recipe.name
+    recipeNameLabel.text = recipe.name.capitalized
     for s in 0..<recipe.ingredients.count {
       ingredientsTextScrollView.text = ingredientsTextScrollView.text! + "\t\t" + String(s+1) + ": " + recipe.ingredients[s] + "\n"
     }

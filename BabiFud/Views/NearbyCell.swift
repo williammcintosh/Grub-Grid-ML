@@ -19,14 +19,16 @@ class NearbyCell: UITableViewCell {
   var recipe: Recipe? {
     didSet {
       placeImageView.downloaded(from: recipe!.recipeURL)
+      //UIImage image = downloaded(from: recipe!.recipeURL)
+      //placeImageView.image = UIImage(named: "breadImage")
       //placeImageView.image = nil
-      name.text = recipe?.name
+      name.text = recipe?.name.capitalized
     }
   }
 }
 
 extension UIImageView {
-    func downloaded(from url: URL, contentMode mode: ContentMode = .scaleAspectFit) {
+    func downloaded(from url: URL, contentMode mode: ContentMode = .scaleAspectFill) {
         contentMode = mode
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard
@@ -40,7 +42,7 @@ extension UIImageView {
             }
         }.resume()
     }
-    func downloaded(from link: String, contentMode mode: ContentMode = .scaleAspectFit) {
+    func downloaded(from link: String, contentMode mode: ContentMode = .scaleAspectFill) {
         guard let url = URL(string: link) else { return }
         downloaded(from: url, contentMode: mode)
     }
