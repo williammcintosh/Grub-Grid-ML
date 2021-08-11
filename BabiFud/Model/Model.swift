@@ -9,8 +9,8 @@ class Model {
   let publicDB: CKDatabase
   let privateDB: CKDatabase
   
-  var carbohydrate = "rice"
-  var vegetable = "tomatoes"
+  var carbohydrate = "bread"
+  var vegetable = "onions"
   
   var sim_user_recipe_ids_str: String = ""
   var sim_user_recipe_ids_ints: [Int] = []
@@ -54,7 +54,7 @@ class Model {
   
   private func AttachToMainThread(forQuery operation: CKQueryOperation,
     _ completion: @escaping (Error?) -> Void) {
-    operation.resultsLimit = 5
+    operation.resultsLimit = 6
     var newItems = [Recipe]()
     operation.queryCompletionBlock = ( { (cursor, error)->Void in
         guard error == nil else {
